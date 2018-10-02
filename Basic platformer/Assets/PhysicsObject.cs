@@ -25,7 +25,7 @@ public class PhysicsObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        contactFilter.useTriggers = false;
+        //contactFilter.useTriggers = false;
         //contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(Platform.Layer));
         //contactFilter.useLayerMask = true;
 	}
