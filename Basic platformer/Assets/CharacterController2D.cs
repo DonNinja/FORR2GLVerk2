@@ -7,6 +7,7 @@ public class CharacterController2D : MonoBehaviour
     private bool haegriSnu = true;
     public int playerJumpPower = 1250;
     private float moveHorizon;
+    private bool grounded;
 
     void Update()
     {
@@ -19,7 +20,14 @@ public class CharacterController2D : MonoBehaviour
         moveHorizon = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
-            Stokk();
+            if (grounded == false)
+            {
+
+            }
+            else
+            {
+                Stokk();
+            }
         }
         //PLAYER ÁTT
         if (moveHorizon < 0.0f && haegriSnu == true)
@@ -45,5 +53,21 @@ public class CharacterController2D : MonoBehaviour
         Vector2 localScale = gameObject.transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    private void OnCollisionExit2D(Collision2D platty)
+    {
+        if (platty.gameObject.tag == "Platform")
+        {
+            grounded = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D platty)
+    {
+        if (platty.gameObject.tag == "Platform")
+        {
+            grounded = true;
+        }
     }
 }

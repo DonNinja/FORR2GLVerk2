@@ -13,7 +13,7 @@ public class CameraControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindWithTag("Player");
 	}
 	
 	// LateUpdate is called after every frame
