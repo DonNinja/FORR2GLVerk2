@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+using UnityEngine.UI;
+
 public class CharacterController2D : MonoBehaviour
 {
     public int playerSpeed = 10;
@@ -8,10 +10,22 @@ public class CharacterController2D : MonoBehaviour
     public int playerJumpPower = 1250;
     private float moveHorizon;
     private bool grounded;
+    public int count;
+
+    public Text collectCountText;
+
+    private void Start()
+    {
+        count = 0;
+
+
+    }
 
     void Update()
     {
         PlayerMove();
+
+        CollectableCount();
     }
 
     void PlayerMove()
@@ -77,5 +91,22 @@ public class CharacterController2D : MonoBehaviour
         {
             transform.parent = platty.transform;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collect)
+    {
+        if (collect.gameObject.tag == "Collectable")
+        {
+            collect.gameObject.SetActive(false);
+
+            count = count + 1;
+
+            CollectableCount();
+        }
+    }
+
+    void CollectableCount()
+    {
+        collectCountText.text = "Score: " + (count * 1000).ToString();
     }
 }
