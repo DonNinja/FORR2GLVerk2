@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterController2D : MonoBehaviour
 {
-    public int playerSpeed = 10;
     private bool haegriSnu = true;
-    public int playerJumpPower = 1250;
-    private float moveHorizon;
     private bool grounded;
+    public int playerJumpPower = 1250;
+    public int playerSpeed = 10;
     public int count;
+    private float moveHorizon;
+    private GameObject collectableText;
 
     public Text collectCountText;
 
     private void Start()
     {
         count = 0;
-
-
     }
 
     void Update()

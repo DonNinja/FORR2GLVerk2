@@ -9,6 +9,7 @@ TagManager:
   - Lift
   - DeathPanel
   - CollectablePanel
+  - WinPanel
   layers:
   - Default
   - TransparentFX
