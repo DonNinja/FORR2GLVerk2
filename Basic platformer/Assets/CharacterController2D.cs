@@ -57,17 +57,25 @@ public class CharacterController2D : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D platty)
     {
-        if (platty.gameObject.tag == "Platform")
+        if (platty.gameObject.tag == "Platform" || platty.gameObject.tag == "Lift")
         {
             grounded = false;
+        }
+        if (platty.transform.tag == "Lift")
+        {
+            transform.parent = null;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D platty)
     {
-        if (platty.gameObject.tag == "Platform")
+        if (platty.gameObject.tag == "Platform" || platty.gameObject.tag == "Lift")
         {
             grounded = true;
+        }
+        if (platty.transform.tag == "Lift")
+        {
+            transform.parent = platty.transform;
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Collectable
+  - Lift
   layers:
   - Default
   - TransparentFX
