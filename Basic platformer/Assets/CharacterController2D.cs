@@ -106,6 +106,6 @@ public class CharacterController2D : MonoBehaviour
 
     void CollectableCount()
     {
-        collectCountText.text = "Score: " + (count * 1000).ToString();
+        collectCountText.text = "Score: " + count.ToString() + "/3";
     }
 }

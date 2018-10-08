@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour {
         Alive = true;
         deathText = GameObject.FindWithTag("DeathPanel");
         collectableText = GameObject.FindWithTag("CollectablePanel");
+        points = 0;
 
         deathText.SetActive(false);
 	}
@@ -35,7 +36,7 @@ public class PlayerHealth : MonoBehaviour {
                 deathText.SetActive(true);
                 setDeathText.text = "You are dead. \n";
                 setDeathText.text += "Press any key to start again. \n";
-                setDeathText.text += "Points gotten: " + (points * 1000).ToString();
+                setDeathText.text += "Stars gotten: " + points.ToString() + "/3";
                 collectableText.SetActive(false);
                 if (Input.anyKey)
                 {

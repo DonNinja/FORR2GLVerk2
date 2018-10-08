@@ -20,6 +20,7 @@ public class PlayerWins : MonoBehaviour
         Winner = false;
         winText = GameObject.FindWithTag("WinPanel");
         collectableText = GameObject.FindWithTag("CollectablePanel");
+        points = 0;
 
         winText.SetActive(false);
     }
@@ -40,25 +41,25 @@ public class PlayerWins : MonoBehaviour
             {
                 setDeathText.text = "How did you get no stars? \n";
                 setDeathText.text += "Press any key to start again. \n";
-                setDeathText.text += "Points gotten: " + (points * 1000).ToString();
+                setDeathText.text += "Points gotten: " + points.ToString() + "/3";
             }
             else if (points == 1)
             {
                 setDeathText.text = "You win, but not by much! \n";
                 setDeathText.text += "Press any key to start again. \n";
-                setDeathText.text += "Points gotten: " + (points * 1000).ToString();
+                setDeathText.text += "Points gotten: " + points.ToString() + "/3";
             }
             else if (points == 2)
             {
                 setDeathText.text = "You win, only one more to get! \n";
                 setDeathText.text += "Press any key to start again. \n";
-                setDeathText.text += "Points gotten: " + (points * 1000).ToString();
+                setDeathText.text += "Points gotten: " + points.ToString() + "/3";
             }
             else if (points == 3)
             {
                 setDeathText.text = "You win, got all the points! \n";
                 setDeathText.text += "Press any key to start again. \n";
-                setDeathText.text += "Points gotten: " + (points * 1000).ToString();
+                setDeathText.text += "Points gotten: " + points.ToString() + "/3";
             }
             collectableText.SetActive(false);
             if (Input.anyKey)
