@@ -18,25 +18,25 @@ public class PlayerWins : MonoBehaviour
     void Start()
     {
         Winner = false;
-        winText = GameObject.FindWithTag("WinPanel");
+        winText = GameObject.FindWithTag("WinPanel"); //Finnur hlut með Tag "WinPanel"
         collectableText = GameObject.FindWithTag("CollectablePanel");
         points = 0;
 
-        winText.SetActive(false);
+        winText.SetActive(false); //Felur winText
     }
 
     // Update is called once per frame
     void Update()
     {
         GameObject Player = GameObject.FindWithTag("Player");
-        CharacterController2D characterController = Player.GetComponent<CharacterController2D>();
+        CharacterController2D characterController = Player.GetComponent<CharacterController2D>(); //Nær í properties úr CharacterController2D
 
-        if (Winner)
+        if (Winner) //ef player vinnur
         {
-            Time.timeScale = 0;
-            points = characterController.count;
+            Time.timeScale = 0; //Stoppar öll movements í leiknum
+            points = characterController.count; //finnur count í CharacterController2D
 
-            winText.SetActive(true);
+            winText.SetActive(true); //Sýnir winText
             if (points == 0)
             {
                 setDeathText.text = "How did you get no stars? \n";
@@ -62,17 +62,17 @@ public class PlayerWins : MonoBehaviour
                 setDeathText.text += "Points gotten: " + points.ToString() + "/3";
             }
             collectableText.SetActive(false);
-            if (Input.anyKey)
+            if (Input.anyKey) //Ef maður ýtir á einhvern takka þá runnar þetta
             {
-                Time.timeScale = 1;
+                Time.timeScale = 1; //Byrjar að spila leikinn
                 SceneManager.LoadScene("Game");
             }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D deathzone)
+    private void OnCollisionEnter2D(Collision2D deathzone) //Um leið og player lendir á/í Collision2D object þá callar það þetta
     {
-        if (deathzone.gameObject.tag == "Finish")
+        if (deathzone.gameObject.tag == "Finish") //Ef tagið á Collision object er "Finish"
         {
             Winner = true;
         }

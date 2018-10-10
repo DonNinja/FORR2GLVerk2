@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-            if (!Alive)
+            if (!Alive) //Ef player deyr
             {
                 Time.timeScale = 0;
                 GameObject Player = GameObject.FindWithTag("Player");
@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour {
                 if (Input.anyKey)
                 {
                     Time.timeScale = 1;
-                    SceneManager.LoadScene("Game");
+                    SceneManager.LoadScene("Game"); //Loadar "Game" scene
                 }
             }
         }

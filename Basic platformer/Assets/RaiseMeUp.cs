@@ -16,12 +16,12 @@ public class RaiseMeUp : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        stadur = stodur[stoduVal];
+        stadur = stodur[stoduVal]; //Setur current position sem position 1 í lykkjunni
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Lyfta.transform.position = Vector3.MoveTowards(Lyfta.transform.position, stadur.position, Time.deltaTime * moveSpeed);
+        Lyfta.transform.position = Vector3.MoveTowards(Lyfta.transform.position, stadur.position, Time.deltaTime * moveSpeed); //færir Lyfta að nýju position
 
         if (Lyfta.transform.position == stadur.position)
         {
